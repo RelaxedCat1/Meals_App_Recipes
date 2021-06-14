@@ -7,7 +7,7 @@ import '../models/meal.dart';
 
 class TabsScreen extends StatefulWidget {
   final List<Meal> favoriteMeals;
-   TabsScreen(this.favoriteMeals);
+  TabsScreen(this.favoriteMeals);
 
   @override
   _TabsScreenState createState() => _TabsScreenState();
@@ -17,15 +17,14 @@ class _TabsScreenState extends State<TabsScreen> {
   List<Map<String, Object>> _pages;
   int _selectedPageIndex = 0;
 
-@override
+  @override
   void initState() {
     _pages = [
-    {'page': CategoriesScreen(), 'title': 'Meal Categories'},
-    {'page': FavoritesScreen(widget.favoriteMeals), 'title': 'Your Favorites'}
-  ];
+      {'page': CategoriesScreen(), 'title': 'Meal Categories'},
+      {'page': FavoritesScreen(widget.favoriteMeals), 'title': 'Your Favorites'}
+    ];
     super.initState();
   }
-
 
   void _selectPage(int index) {
     setState(() {
@@ -38,7 +37,6 @@ class _TabsScreenState extends State<TabsScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(_pages[_selectedPageIndex]['title']),
-      
       ),
       drawer: MainDrawer(),
       //The first Element is the First Tab, The second Element is the Second Tab and so on...
@@ -54,13 +52,13 @@ class _TabsScreenState extends State<TabsScreen> {
               icon: Icon(
                 Icons.category,
               ),
-              title: Text('Categories'),
+              label: 'Categories',
             ),
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.favorite,
               ),
-              title: Text('Favorites'),
+              label: 'Favorites',
             ),
           ]),
     );
